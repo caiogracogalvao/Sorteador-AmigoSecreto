@@ -449,7 +449,7 @@ async function enviarEmailDigitado() {
     animarBau();
 
     try {
-        const resposta = await fetch('http://localhost:3000/enviar-email', {
+        const resposta = await fetch('https://sorteador-amigosecreto.onrender.com/enviar-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
