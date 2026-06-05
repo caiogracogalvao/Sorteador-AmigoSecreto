@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio Mágico</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <img src="img/library-bg.jpg" class="library-bg" alt="Biblioteca mágica">
+
+        <div class="overlay"></div>
+
+        <div class="smoke">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="top-line"></div>
+        <div class="bottom-line"></div>
+        <div class="left-line"></div>
+        <div class="right-line"></div>
+
+        <div class="ornament-top">✦ ───── ✦ ───── ✦</div>
+        <div class="ornament-bottom">✦ ───── ✦ ───── ✦</div>
+
+        <img src="img/wheel-gold.png" class="wheel wheel-top-left" alt="">
+        <img src="img/wheel-gold.png" class="wheel wheel-bottom-right" alt="">
+
+        <img src="img/hogwarts-crest.png" class="crest crest-top-right" alt="">
+        <img src="img/hogwarts-crest.png" class="crest crest-bottom-left" alt="">
+
+        <section class="panel">
+
+            <h1>Sorteio</h1>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="mostrarModo('numeros')" id="tab-numeros">
+                    Números
+                </button>
+
+                <button class="tab-button" onclick="mostrarModo('amigo')" id="tab-amigo">
+                    Amigo Secreto
+                </button>
+            </div>
+
+            <div id="modo-numeros" class="modo ativo">
+
+                <div class="field">
+                    <label>
+                        <span class="field-icon">
+                            <img src="img/icon-gift.png" alt="">
+                        </span>
+                        Quantidade<br>de números
+                    </label>
+
+                    <input type="number" id="quantidade" min="1" placeholder="Ex.: 5">
+                </div>
+
+                <div class="field">
+                    <label>
+                        <span class="field-icon">
+                            <img src="img/icon-snowflake.png" alt="">
+                        </span>
+                        Do número
+                    </label>
+
+                    <input type="number" id="de" min="1" placeholder="Ex.: 1">
+                </div>
+
+                <div class="field">
+                    <label>
+                        <span class="field-icon">
+                            <img src="img/icon-stocking.png" alt="">
+                        </span>
+                        Até o número
+                    </label>
+
+                    <input type="number" id="ate" min="1" placeholder="Ex.: 50">
+                </div>
+
+                <div class="buttons">
+                    <button onclick="sortear()" class="btn-sortear">
+                        🎲 Sortear
+                    </button>
+
+                    <button onclick="reiniciar()" class="btn-reiniciar">
+                        ↻ Reiniciar
+                    </button>
+                </div>
+
+                <div id="resultado" class="result-box">
+                    <div class="result-icon">
+                        <img src="img/treasure-chest.png" alt="Baú do Tesouro">
+                    </div>
+
+                    <div class="result-text">
+                        <h2>Nenhum número sorteado ainda</h2>
+                        <p>Preencha os campos e clique em Sortear</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="modo-amigo" class="modo">
+
+                <div id="area-cadastro-amigo">
+
+                    <div class="field amigo-field">
+
+                        <label>
+                            <span class="field-icon">
+                                <img src="img/icon-gift.png" alt="">
+                            </span>
+
+                            Nome do<br>participante
+                        </label>
+
+                        <input type="text" id="nome-amigo" placeholder="Ex.: Caio">
+
+                    </div>
+
+                    <div class="buttons amigo-buttons">
+
+                        <button onclick="adicionarParticipante()" class="btn-sortear">
+                            + Adicionar
+                        </button>
+
+                        <button onclick="reiniciarAmigoSecreto()" class="btn-reiniciar">
+                            ↻ Limpar
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="lista-amigos">
+
+                    <h2 id="titulo-participantes">
+                        Participantes (0)
+                    </h2>
+
+                    <ul id="lista-participantes"></ul>
+
+                </div>
+
+                <div id="area-botoes-amigo" class="buttons revelar-sozinho">
+
+                    <button id="btn-sortear-amigo"
+                            onclick="sortearAmigoSecreto()"
+                            class="btn-sortear">
+                        🎁 Sortear
+                    </button>
+
+                </div>
+
+                <div id="resultado-amigo" class="result-box">
+
+                    <div class="result-icon">
+                        <img src="img/treasure-chest.png" alt="Baú do Tesouro">
+                    </div>
+
+                    <div class="result-text">
+                        <h2>Amigo secreto ainda não sorteado</h2>
+                        <p>Adicione os participantes para começar</p>
+                    </div>
+
+                </div>
+
+                <button id="btn-voltar-cadastro"
+                        onclick="mostrarCadastro()"
+                        class="btn-voltar-cadastro esconder">
+                    ↩ Voltar ao cadastro
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
