@@ -178,21 +178,20 @@ function sortearAmigoSecreto() {
         return;
     }
 
-    let embaralhado;
+
+    let sorteados;
     let valido = false;
 
     while (!valido) {
-        embaralhado = [...participantes];
+        sorteados = [...participantes];
 
-        for (let i = embaralhado.length - 1; i > 0; i--) {
+        for (let i = sorteados.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-
-            [embaralhado[i], embaralhado[j]] =
-            [embaralhado[j], embaralhado[i]];
+            [sorteados[i], sorteados[j]] = [sorteados[j], sorteados[i]];
         }
 
         valido = participantes.every((pessoa, index) => {
-            return pessoa !== embaralhado[index];
+            return pessoa !== sorteados[index];
         });
     }
 
@@ -201,9 +200,14 @@ function sortearAmigoSecreto() {
     for (let i = 0; i < participantes.length; i++) {
         pares.push({
             pessoa: participantes[i],
-            amigo: embaralhado[i]
+            amigo: sorteados[i]
         });
     }
+
+    for (let i = pares.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pares[i], pares[j]] = [pares[j], pares[i]];
+    }  
 
     indiceAtual = 0;
     sorteioFoiRevelado = false;
