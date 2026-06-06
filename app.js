@@ -16,10 +16,6 @@ function mostrarModo(modo) {
 
 
 
-/* ===========================
-   SORTEIO DE NÚMEROS
-=========================== */
-
 function sortear() {
     const quantidade = parseInt(document.getElementById('quantidade').value);
     const de = parseInt(document.getElementById('de').value);
@@ -109,10 +105,6 @@ function reiniciar() {
 }
 
 
-
-/* ===========================
-   AMIGO SECRETO
-=========================== */
 
 let participantes = [];
 let pares = [];
@@ -622,10 +614,6 @@ function reiniciarAmigoSecreto() {
 }
 
 
-
-/* ===========================
-   PARTÍCULAS E ANIMAÇÕES
-=========================== */
 
 function criarParticulasMagicas() {
     const resultado = document.getElementById('resultado-amigo');
